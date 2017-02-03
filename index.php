@@ -15,7 +15,16 @@
     $app->get('/hbo_max','gethbo_max');
     $app->get('/peliculas','getpeliculas');
     $app->get('/ppv','getppv');
-    
+    $app->get('/cable','getcable');
+    $app->get('/television_cable','gettelevision_cable');
+
+    $app->get('/internet','getinternet');
+    $app->get('/telefonia','gettelefonia');
+    $app->get('/paquete_uno','getpaquete1');
+    $app->get('/paquete_dos_internet','getpaquete2');
+    $app->get('/paquete_dos_telefonia','getpaquete2t');
+    $app->get('/paquete_tres','getpaquete3');
+
 
     //buscando por id
     $app->get('/promociones/:id','getpromocionesid');
@@ -26,7 +35,12 @@
     $app->get('/hbo_max/:id','gethbo_max_id');
     $app->get('/ppv/:id','getppvid');
     $app->get('/fox_mas/:id','getfox_mas_id');
-
+    $app->get('/cable/:id','getcable_id');
+    $app->get('/internet/:id','getinternet_id');
+    $app->get('/telefonia/:id','gettelefonia_id');
+    $app->get('/networks/:id','getnetworks_id');
+    $app->get('/programas_tv/:id','getprogramas_tv_id');
+    $app->get('/tv_en_vivo/:id','gettv_en_vivo_id');
 
     //carruseles nw.js
     $app->get('/hbo_max_primero','gethbo_max_primero');
@@ -38,12 +52,21 @@
     $app->get('/peliculas_primero','getpeliculas_primero');
     $app->get('/peliculas_segundo','getpeliculas_segundo');
 
-    /*
     $app->get('/programas_tv','getprogramas_tv');
+    $app->get('/programas_tv_primero','getprogramas_tv_primero');
+    $app->get('/programas_tv_segundo','getprogramas_tv_segundo');
+
     $app->get('/tv_en_vivo','gettv_en_vivo');
-    $app->get('/networks','getget_networks');
-    */
+    $app->get('/tv_en_vivoprimero','gettv_en_vivo_primero');
+    $app->get('/tv_en_vivosegundo','gettv_en_vivo_segundo');    
+    $app->get('/tv_en_vivotercero','gettv_en_vivo_tercero');
+    $app->get('/tv_en_vivocuarto','gettv_en_vivo_cuarto');
+    $app->get('/tv_en_vivocinco','gettv_en_vivo_cinco');    
     
+    $app->get('/networks','get_networks');
+    $app->get('/networksprimero','get_networks_primero');
+    $app->get('/networkssegundo','get_networks_segundo');
+
     //agregar datos
     $app->post('/agregarlistaimagenes','postbannerview');
     $app->post('/agregarlistaimagenesfooter','postbannerfooter');
@@ -52,7 +75,13 @@
     $app->post('/agregarhbo_max','posthbo_max');
     $app->post('/agregarppv','postppv');
     $app->post('/agregarfox_mas','postfox_mas');
-
+    $app->post('/agregartelevision','posttelevision');
+    $app->post('/agregarinternet','postinternet');
+    $app->post('/agregartelefonia','posttelefonia');
+    $app->post('/agregarnetwork','postnetwork');
+    $app->post('/agregarprogramas_tv','postprogramas_tv');
+    $app->post('/agregar_tv_en_vivo','posttv_en_vivo');
+    $app->post('/agregarpaquete','postpaquete');
 
     //agregar imagenes
     $app->post('/insertarimagenpeliculas','insertandoImagenpeliculas');
@@ -62,6 +91,10 @@
     $app->post('/insertarimagen','insertandoImagen');
     $app->post('/insertarimagenppv','insertandoImagenppv');
     $app->post('/insertarimagenfox_mas','insertandoImagenfox_mas');
+    $app->post('/insertarimagennetwork','insertandoImagennetwork');
+    $app->post('/insertarimagenprogramas_tv','insertandoImagenprogramas_tv');
+    $app->post('/insertarimageninternet','insertandoImageninternet');
+    $app->post('/insertarimagentv_en_vivo','insertandoImagentv_en_vivo');
 
     //eliminr imagenes
     $app->delete('/eliminarimagenppv/:ruta','eliminandoImagenppv');
@@ -71,7 +104,9 @@
     $app->delete('/eliminarimagen/:ruta','eliminandoImagen');
     $app->delete('/eliminarimagenfooter/:ruta','eliminandoImagenfooter');
     $app->delete('/eliminarimagenpeliculas/:ruta','eliminandoImagenpeliculas');
-
+    $app->delete('/eliminarimagentv_en_vivo/:ruta','eliminandoImagentv_en_vivo');
+    $app->delete('/eliminarimagennetworks/:ruta','eliminandoImagennetworks');
+    $app->delete('/eliminarimagenprogramas_tv/:ruta','eliminandoImagenprogramas_tv');
 
     //Actualizar 
     $app->put('/actualizarlistaimagenes/:id','putbannerview');
@@ -81,6 +116,12 @@
     $app->put('/actualizarhbo_max/:id','puthbo_max');
     $app->put('/actualizarppv/:id','putppv');
     $app->put('/actualizarfox_mas/:id','putfox_mas');
+    $app->put('/actualizarcable/:id','putcable');
+    $app->put('/actualizarinternet/:id','putinternet');
+    $app->put('/actualizartelefonia/:id','puttelefonia');
+    $app->put('/actualizarnetworks/:id','putnetworks');
+    $app->put('/actualizarprogramas_tv/:id','putprogramas_tv');
+    $app->put('/actualizartv_en_vivo/:id','puttv_en_vivo');
 
     //Eliminar
     $app->delete('/eliminarlistaimagen/:id','deletebannerview');
@@ -90,7 +131,13 @@
     $app->delete('/eliminarhbo_max/:id','deletehbo_max');
     $app->delete('/eliminarppv/:id','deleteppv');
     $app->delete('/eliminarfox_mas/:id','deletefox_mas');
-
+    $app->delete('/eliminarcable/:id','deletecable');
+    $app->delete('/eliminarinternet/:id','deleteinternet');
+    $app->delete('/eliminartelefonia/:id','deletetelefonia');
+    $app->delete('/eliminartv_en_vivo/:id','deletetv_en_vivo');
+    $app->delete('/eliminarnetworks/:id','deletenetwork');
+    $app->delete('/eliminarprogramas_tv/:id','deleteprogramas_tv');
+    
     function getinicio()
     {
         echo "Pagina de gestion API REST MEGACABLE";
@@ -183,6 +230,110 @@
             echo '{"error":{"text":'. $e->getMessage() .'}}';
         }
     }
+    function getpaquete1()
+    {
+        $sql = "select paquetes.precio, paquetes.precio_pronto, paquetes.tipo, television.nombre, television.numero_canales, television.numero_musica from paquetes join television on paquetes.id_television = television.id where paquetes.tipo=1 ORDER BY paquetes.id";
+        try {
+            $db = getConnection();
+            $stmt = $db->query($sql);
+            $c = $stmt->fetchAll(PDO::FETCH_OBJ);
+            $db = null;
+            echo json_encode($c);
+        }catch(PDOException $e) {
+            echo '{"error":{"text":'. $e->getMessage() .'}}';
+        }
+    }
+    function getpaquete2()
+    {
+        $sql = "select internet.velocidades, paquetes.precio, paquetes.precio_pronto, paquetes.tipo, television.nombre, television.numero_canales, television.numero_musica from paquetes join television on paquetes.id_television = television.id  join internet on paquetes.id_internet = internet.id where paquetes.tipo=2 ORDER BY paquetes.id";
+        try {
+            $db = getConnection();
+            $stmt = $db->query($sql);
+            $c = $stmt->fetchAll(PDO::FETCH_OBJ);
+            $db = null;
+            echo json_encode($c);
+        }catch(PDOException $e) {
+            echo '{"error":{"text":'. $e->getMessage() .'}}';
+        }
+    }
+    function getpaquete2t()
+    {
+        $sql = "select paquetes.precio, paquetes.precio_pronto, paquetes.tipo, television.nombre, television.numero_canales, television.numero_musica,telefonia.descripcion from paquetes join television on paquetes.id_television = television.id join telefonia on paquetes.id_telefonia = telefonia.id where paquetes.tipo=2 ORDER BY paquetes.id";
+        try {
+            $db = getConnection();
+            $stmt = $db->query($sql);
+            $c = $stmt->fetchAll(PDO::FETCH_OBJ);
+            $db = null;
+            echo json_encode($c);
+        }catch(PDOException $e) {
+            echo '{"error":{"text":'. $e->getMessage() .'}}';
+        }   
+    }
+    function getpaquete3()
+    {
+        $sql = "select paquetes.precio, paquetes.precio_pronto, paquetes.tipo, television.nombre, television.numero_canales, television.numero_musica, internet.velocidades, telefonia.descripcion from paquetes join television on paquetes.id_television = television.id  join internet on paquetes.id_internet = internet.id  join telefonia on paquetes.id_telefonia = telefonia.id where paquetes.tipo=3 ORDER BY paquetes.id";
+        try {
+            $db = getConnection();
+            $stmt = $db->query($sql);
+            $c = $stmt->fetchAll(PDO::FETCH_OBJ);
+            $db = null;
+            echo json_encode($c);
+        }catch(PDOException $e) {
+            echo '{"error":{"text":'. $e->getMessage() .'}}';
+        } 
+    }
+    function getcable()
+    {
+        $sql = "select * from television";
+        try {
+            $db = getConnection();
+            $stmt = $db->query($sql);
+            $c = $stmt->fetchAll(PDO::FETCH_OBJ);
+            $db = null;
+            echo json_encode($c);
+        }catch(PDOException $e) {
+            echo '{"error":{"text":'. $e->getMessage() .'}}';
+        }
+    }
+    function gettelevision_cable()
+    {
+        $sql = "select * from television where television = 1";
+        try {
+            $db = getConnection();
+            $stmt = $db->query($sql);
+            $c = $stmt->fetchAll(PDO::FETCH_OBJ);
+            $db = null;
+            echo json_encode($c);
+        }catch(PDOException $e) {
+            echo '{"error":{"text":'. $e->getMessage() .'}}';
+        }   
+    }
+    function getinternet()
+    {
+        $sql = "select * from internet";
+        try {
+            $db = getConnection();
+            $stmt = $db->query($sql);
+            $c = $stmt->fetchAll(PDO::FETCH_OBJ);
+            $db = null;
+            echo json_encode($c);
+        }catch(PDOException $e) {
+            echo '{"error":{"text":'. $e->getMessage() .'}}';
+        }
+    }
+    function gettelefonia()
+    {
+        $sql = "select * from telefonia";
+        try {
+            $db = getConnection();
+            $stmt = $db->query($sql);
+            $c = $stmt->fetchAll(PDO::FETCH_OBJ);
+            $db = null;
+            echo json_encode($c);
+        }catch(PDOException $e) {
+            echo '{"error":{"text":'. $e->getMessage() .'}}';
+        }
+    }
     function getpromocionesid($id)
     {
         $sql = "select * from promos where id= :id";
@@ -219,6 +370,42 @@
     function getfox_mas_id($id)
     {
         $sql = "select * from fox_mas where id= :id";
+        try 
+        {
+            $db = getConnection();
+            $stmt = $db->prepare($sql);  
+            $stmt->bindParam("id", $id);
+            $stmt->execute();
+            $c = $stmt->fetchObject();  
+            $db = null;
+            echo json_encode($c); 
+        }
+        catch(PDOException $e) 
+        {
+            echo '{"error":{"text":'. $e->getMessage() .'}}'; 
+        }
+    }
+    function getnetworks_id($id)
+    {
+        $sql = "select * from networks where id= :id";
+        try 
+        {
+            $db = getConnection();
+            $stmt = $db->prepare($sql);  
+            $stmt->bindParam("id", $id);
+            $stmt->execute();
+            $c = $stmt->fetchObject();  
+            $db = null;
+            echo json_encode($c); 
+        }
+        catch(PDOException $e) 
+        {
+            echo '{"error":{"text":'. $e->getMessage() .'}}'; 
+        }
+    }
+    function getprogramas_tv_id($id)
+    {
+        $sql = "select * from programas_tv where id= :id";
         try 
         {
             $db = getConnection();
@@ -423,6 +610,60 @@
             echo '{"error":{"text":'. $e->getMessage() .'}}'; 
         }
     }
+    function getcable_id($id)
+    {
+        $sql = "select * from television where id= :id";
+        try 
+        {
+            $db = getConnection();
+            $stmt = $db->prepare($sql);  
+            $stmt->bindParam("id", $id);
+            $stmt->execute();
+            $c = $stmt->fetchObject();  
+            $db = null;
+            echo json_encode($c); 
+        }
+        catch(PDOException $e) 
+        {
+            echo '{"error":{"text":'. $e->getMessage() .'}}'; 
+        }
+    }
+    function getinternet_id($id)
+    {
+        $sql = "select * from internet where id= :id";
+        try 
+        {
+            $db = getConnection();
+            $stmt = $db->prepare($sql);  
+            $stmt->bindParam("id", $id);
+            $stmt->execute();
+            $c = $stmt->fetchObject();  
+            $db = null;
+            echo json_encode($c); 
+        }
+        catch(PDOException $e) 
+        {
+            echo '{"error":{"text":'. $e->getMessage() .'}}'; 
+        }
+    }
+    function gettelefonia_id($id)
+    {
+        $sql = "select * from telefonia where id= :id";
+        try 
+        {
+            $db = getConnection();
+            $stmt = $db->prepare($sql);  
+            $stmt->bindParam("id", $id);
+            $stmt->execute();
+            $c = $stmt->fetchObject();  
+            $db = null;
+            echo json_encode($c); 
+        }
+        catch(PDOException $e) 
+        {
+            echo '{"error":{"text":'. $e->getMessage() .'}}'; 
+        }
+    }
     function getppv_segundo()
     {
         $ano=date("Y");
@@ -438,11 +679,190 @@
             echo '{"error":{"text":'. $e->getMessage() .'}}';
         }   
     }
-     function getppv_primero()
+    function getppv_primero()
     {
         $ano=date("Y");
         $mes=date("m");
         $sql = "select * from ppv where YEAR(mes)='".$ano."' and MONTH(mes)='".$mes."' limit 4";
+        try {
+            $db = getConnection();
+            $stmt = $db->query($sql);
+            $c = $stmt->fetchAll(PDO::FETCH_OBJ);
+            $db = null;
+            echo json_encode($c);
+        }catch(PDOException $e) {
+            echo '{"error":{"text":'. $e->getMessage() .'}}';
+        }   
+    }
+    function gettv_en_vivo()
+    {
+
+        $sql = "select * from tv_en_vivo";
+        try {
+            $db = getConnection();
+            $stmt = $db->query($sql);
+            $c = $stmt->fetchAll(PDO::FETCH_OBJ);
+            $db = null;
+            echo json_encode($c);
+        }catch(PDOException $e) {
+            echo '{"error":{"text":'. $e->getMessage() .'}}';
+        }   
+    }
+    function gettv_en_vivo_id($id)
+    {
+        $sql = "select * from tv_en_vivo where id= :id";
+        try 
+        {
+            $db = getConnection();
+            $stmt = $db->prepare($sql);  
+            $stmt->bindParam("id", $id);
+            $stmt->execute();
+            $c = $stmt->fetchObject();  
+            $db = null;
+            echo json_encode($c); 
+        }
+        catch(PDOException $e) 
+        {
+            echo '{"error":{"text":'. $e->getMessage() .'}}'; 
+        }
+    }
+    function gettv_en_vivo_primero()
+    {
+        
+        $sql = "select * from tv_en_vivo limit 4";
+        try {
+            $db = getConnection();
+            $stmt = $db->query($sql);
+            $c = $stmt->fetchAll(PDO::FETCH_OBJ);
+            $db = null;
+            echo json_encode($c);
+        }catch(PDOException $e) {
+            echo '{"error":{"text":'. $e->getMessage() .'}}';
+        }   
+    }
+    function gettv_en_vivo_segundo()
+    {
+        
+        $sql = "select * from tv_en_vivo limit 4,4";
+        try {
+            $db = getConnection();
+            $stmt = $db->query($sql);
+            $c = $stmt->fetchAll(PDO::FETCH_OBJ);
+            $db = null;
+            echo json_encode($c);
+        }catch(PDOException $e) {
+            echo '{"error":{"text":'. $e->getMessage() .'}}';
+        }   
+    }
+    function gettv_en_vivo_tercero()
+    {
+        
+        $sql = "select * from tv_en_vivo limit 8,4";
+        try {
+            $db = getConnection();
+            $stmt = $db->query($sql);
+            $c = $stmt->fetchAll(PDO::FETCH_OBJ);
+            $db = null;
+            echo json_encode($c);
+        }catch(PDOException $e) {
+            echo '{"error":{"text":'. $e->getMessage() .'}}';
+        }   
+    }
+    function gettv_en_vivo_cuarto()
+    {
+       $sql = "select * from tv_en_vivo limit 12,4";
+        try {
+            $db = getConnection();
+            $stmt = $db->query($sql);
+            $c = $stmt->fetchAll(PDO::FETCH_OBJ);
+            $db = null;
+            echo json_encode($c);
+        }catch(PDOException $e) {
+            echo '{"error":{"text":'. $e->getMessage() .'}}';
+        }    
+    }
+    function gettv_en_vivo_cinco()
+    {
+        $sql = "select * from tv_en_vivo limit 16,4";
+        try {
+            $db = getConnection();
+            $stmt = $db->query($sql);
+            $c = $stmt->fetchAll(PDO::FETCH_OBJ);
+            $db = null;
+            echo json_encode($c);
+        }catch(PDOException $e) {
+            echo '{"error":{"text":'. $e->getMessage() .'}}';
+        }    
+    }
+    function get_networks()
+    {
+        $sql = "select * from networks";
+        try {
+            $db = getConnection();
+            $stmt = $db->query($sql);
+            $c = $stmt->fetchAll(PDO::FETCH_OBJ);
+            $db = null;
+            echo json_encode($c);
+        }catch(PDOException $e) {
+            echo '{"error":{"text":'. $e->getMessage() .'}}';
+        }   
+    }
+    function get_networks_primero()
+    {
+        $sql = "select * from networks limit 4";
+        try {
+            $db = getConnection();
+            $stmt = $db->query($sql);
+            $c = $stmt->fetchAll(PDO::FETCH_OBJ);
+            $db = null;
+            echo json_encode($c);
+        }catch(PDOException $e) {
+            echo '{"error":{"text":'. $e->getMessage() .'}}';
+        }   
+    }
+    function get_networks_segundo()
+    {
+        $sql = "select * from networks limit 4,4";
+        try {
+            $db = getConnection();
+            $stmt = $db->query($sql);
+            $c = $stmt->fetchAll(PDO::FETCH_OBJ);
+            $db = null;
+            echo json_encode($c);
+        }catch(PDOException $e) {
+            echo '{"error":{"text":'. $e->getMessage() .'}}';
+        }   
+    }
+    function getprogramas_tv()
+    {
+
+        $sql = "select * from programas_tv";
+        try {
+            $db = getConnection();
+            $stmt = $db->query($sql);
+            $c = $stmt->fetchAll(PDO::FETCH_OBJ);
+            $db = null;
+            echo json_encode($c);
+        }catch(PDOException $e) {
+            echo '{"error":{"text":'. $e->getMessage() .'}}';
+        }   
+    }
+    function getprogramas_tv_primero()
+    {
+        $sql = "select * from programas_tv limit 4";
+        try {
+            $db = getConnection();
+            $stmt = $db->query($sql);
+            $c = $stmt->fetchAll(PDO::FETCH_OBJ);
+            $db = null;
+            echo json_encode($c);
+        }catch(PDOException $e) {
+            echo '{"error":{"text":'. $e->getMessage() .'}}';
+        }   
+    }
+     function getprogramas_tv_segundo()
+    {
+        $sql = "select * from programas_tv limit 4,8";
         try {
             $db = getConnection();
             $stmt = $db->query($sql);
@@ -458,11 +878,11 @@
         $request = Slim\Slim::getInstance()->request();
         $banner_view = json_decode($request->getBody());
         $file = $_FILES["file"]["name"];
-        if(!is_dir("C:/xampp/htdocs/api_imagenes/banner_view"))
+        if(!is_dir("../api_megacable/imagenes/banner_view"))
         {
-            mkdir("C:/xampp/htdocs/api_imagenes/banner_view", 0777);
+            mkdir("../api_megacable/imagenes/banner_view", 0777);
         }
-        if($file && move_uploaded_file($_FILES["file"]["tmp_name"], "C:/xampp/htdocs/api_imagenes/banner_view/".$file))
+        if($file && move_uploaded_file($_FILES["file"]["tmp_name"], "../api_megacable/imagenes/banner_view/".$file))
         {
             echo json_decode($file);
         }
@@ -472,11 +892,11 @@
         $request = Slim\Slim::getInstance()->request();
         $banner_view = json_decode($request->getBody());
         $file = $_FILES["file"]["name"];
-        if(!is_dir("C:/xampp/htdocs/api_imagenes/banner_footer"))
+        if(!is_dir("../api_megacable/imagenes/banner_footer"))
         {
-            mkdir("C:/xampp/htdocs/api_imagenes/banner_footer", 0777);
+            mkdir("../api_megacable/imagenes/banner_footer", 0777);
         }
-        if($file && move_uploaded_file($_FILES["file"]["tmp_name"], "C:/xampp/htdocs/api_imagenes/banner_footer/".$file))
+        if($file && move_uploaded_file($_FILES["file"]["tmp_name"], "../api_megacable/imagenes/banner_footer/".$file))
         {
             echo json_decode($file);
         }
@@ -486,11 +906,11 @@
         $request = Slim\Slim::getInstance()->request();
         $banner_view = json_decode($request->getBody());
         $file = $_FILES["file"]["name"];
-        if(!is_dir("C:/xampp/htdocs/api_imagenes/promos"))
+        if(!is_dir("../api_megacable/imagenes/promos"))
         {
-            mkdir("C:/xampp/htdocs/api_imagenes/promos", 0777);
+            mkdir("../api_megacable/imagenes/promos", 0777);
         }
-        if($file && move_uploaded_file($_FILES["file"]["tmp_name"], "C:/xampp/htdocs/api_imagenes/promos/".$file))
+        if($file && move_uploaded_file($_FILES["file"]["tmp_name"], "../api_megacable/imagenes/promos/".$file))
         {
             echo json_decode($file);
         }
@@ -500,11 +920,11 @@
         $request = Slim\Slim::getInstance()->request();
         $banner_view = json_decode($request->getBody());
         $file = $_FILES["file"]["name"];
-        if(!is_dir("C:/xampp/htdocs/api_imagenes/peliculas_renta"))
+        if(!is_dir("../api_megacable/imagenes/peliculas_renta"))
         {
-            mkdir("C:/xampp/htdocs/api_imagenes/peliculas_renta", 0777);
+            mkdir("../api_megacable/imagenes/peliculas_renta", 0777);
         }
-        if($file && move_uploaded_file($_FILES["file"]["tmp_name"], "C:/xampp/htdocs/api_imagenes/peliculas_renta/".$file))
+        if($file && move_uploaded_file($_FILES["file"]["tmp_name"], "../api_megacable/imagenes/peliculas_renta/".$file))
         {
             echo json_decode($file);
         }    
@@ -514,11 +934,11 @@
         $request = Slim\Slim::getInstance()->request();
         $banner_view = json_decode($request->getBody());
         $file = $_FILES["file"]["name"];
-        if(!is_dir("C:/xampp/htdocs/api_imagenes/hbo_max"))
+        if(!is_dir("../api_megacable/imagenes//hbo_max"))
         {
-            mkdir("C:/xampp/htdocs/api_imagenes/hbo_max", 0777);
+            mkdir("../api_megacable/imagenes/hbo_max", 0777);
         }
-        if($file && move_uploaded_file($_FILES["file"]["tmp_name"], "C:/xampp/htdocs/api_imagenes/hbo_max/".$file))
+        if($file && move_uploaded_file($_FILES["file"]["tmp_name"], "../api_megacable/imagenes/hbo_max/".$file))
         {
             echo json_decode($file);
         }    
@@ -528,11 +948,11 @@
         $request = Slim\Slim::getInstance()->request();
         $banner_view = json_decode($request->getBody());
         $file = $_FILES["file"]["name"];
-        if(!is_dir("C:/xampp/htdocs/api_imagenes/ppv"))
+        if(!is_dir("../api_megacable/imagenes/ppv"))
         {
-            mkdir("C:/xampp/htdocs/api_imagenes/ppv", 0777);
+            mkdir("../api_megacable/imagenes/ppv", 0777);
         }
-        if($file && move_uploaded_file($_FILES["file"]["tmp_name"], "C:/xampp/htdocs/api_imagenes/ppv/".$file))
+        if($file && move_uploaded_file($_FILES["file"]["tmp_name"], "../api_megacable/imagenes/ppv/".$file))
         {
             echo json_decode($file);
         }    
@@ -542,18 +962,102 @@
         $request = Slim\Slim::getInstance()->request();
         $banner_view = json_decode($request->getBody());
         $file = $_FILES["file"]["name"];
-        if(!is_dir("C:/xampp/htdocs/api_imagenes/fox_mas"))
+        if(!is_dir("../api_megacable/imagenes/fox_mas"))
         {
-            mkdir("C:/xampp/htdocs/api_imagenes/fox_mas", 0777);
+            mkdir("../api_megacable/imagenes/fox_mas", 0777);
         }
-        if($file && move_uploaded_file($_FILES["file"]["tmp_name"], "C:/xampp/htdocs/api_imagenes/fox_mas/".$file))
+        if($file && move_uploaded_file($_FILES["file"]["tmp_name"], "../api_megacable/imagenes/fox_mas/".$file))
         {
             echo json_decode($file);
         }    
     }
+    function insertandoImagennetwork()
+    {
+        $request = Slim\Slim::getInstance()->request();
+        $banner_view = json_decode($request->getBody());
+        $file = $_FILES["file"]["name"];
+        if(!is_dir("../api_megacable/imagenes/networks"))
+        {
+            mkdir("../api_megacable/imagenes/networks", 0777);
+        }
+        if($file && move_uploaded_file($_FILES["file"]["tmp_name"], "../api_megacable/imagenes/networks/".$file))
+        {
+            echo json_decode($file);
+        }    
+    }
+    function insertandoImagentv_en_vivo()
+    {
+        $request = Slim\Slim::getInstance()->request();
+        $banner_view = json_decode($request->getBody());
+        $file = $_FILES["file"]["name"];
+        if(!is_dir("../api_megacable/imagenes/tv_en_vivo"))
+        {
+            mkdir("../api_megacable/imagenes/tv_en_vivo", 0777);
+        }
+        if($file && move_uploaded_file($_FILES["file"]["tmp_name"], "../api_megacable/imagenes/tv_en_vivo/".$file))
+        {
+            echo json_decode($file);
+        }    
+    }
+    function insertandoImagenprogramas_tv()
+    {
+        $request = Slim\Slim::getInstance()->request();
+        $banner_view = json_decode($request->getBody());
+        $file = $_FILES["file"]["name"];
+        if(!is_dir("../api_megacable/imagenes/programas_tv"))
+        {
+            mkdir("../api_megacable/imagenes/programas_tv", 0777);
+        }
+        if($file && move_uploaded_file($_FILES["file"]["tmp_name"], "../api_megacable/imagenes/programas_tv/".$file))
+        {
+            echo json_decode($file);
+        }    
+    }
+    function insertandoImageninternet()
+    {
+        $request = Slim\Slim::getInstance()->request();
+        $banner_view = json_decode($request->getBody());
+        $file = $_FILES["file"]["name"];
+        if(!is_dir("../api_megacable/imagenes/internet"))
+        {
+            mkdir("../api_megacable/imagenes/internet", 0777);
+        }
+        if($file && move_uploaded_file($_FILES["file"]["tmp_name"], "../api_megacable/imagenes/internet/".$file))
+        {
+            echo json_decode($file);
+        }    
+    }
+    function eliminandoImagenprogramas_tv($ruta)
+    {
+        $directorio="../api_megacable/imagenes/programas_tv/".$ruta;
+        echo ($directorio);
+
+        if (isset($directorio)) 
+        {
+            unlink($directorio);
+        }
+        else
+        {
+            echo json_decode($directorio);
+        }
+    }
+    function eliminandoImagennetworks($ruta)
+    {
+        $directorio="../api_megacable/imagenes/networks/".$ruta;
+        echo ($directorio);
+
+        if (isset($directorio)) 
+        {
+            unlink($directorio);
+        }
+        else
+        {
+            echo json_decode($directorio);
+        }
+    }
     function eliminandoImagenppv($ruta) 
     {
-        $directorio="C:/xampp/htdocs/api_imagenes/ppv/".$ruta;
+        $directorio="../api_megacable/imagenes/ppv/".$ruta;
         echo ($directorio);
 
         if (isset($directorio)) 
@@ -568,7 +1072,7 @@
     }
     function eliminandoImagenhbo($ruta)
     {
-        $directorio="C:/xampp/htdocs/api_imagenes/hbo_max/".$ruta;
+        $directorio="../api_megacable/imagenes/hbo_max/".$ruta;
         echo ($directorio);
 
         if (isset($directorio)) 
@@ -582,7 +1086,7 @@
     }
     function eliminandoImagenpromos($ruta)
     {
-        $directorio="C:/xampp/htdocs/api_imagenes/hbo_max/".$ruta;
+        $directorio="../api_megacable/imagenes/promos/".$ruta;
         echo ($directorio);
 
         if (isset($directorio)) 
@@ -596,7 +1100,7 @@
     }
     function eliminandoImagenfox_mas($ruta)
     {
-        $directorio="C:/xampp/htdocs/api_imagenes/fox_mas/".$ruta;
+        $directorio="../api_megacable/imagenes/fox_mas/".$ruta;
         echo ($directorio);
 
         if (isset($directorio)) 
@@ -610,7 +1114,7 @@
     }
     function eliminandoImagen($ruta)
     {
-        $directorio="C:/xampp/htdocs/api_imagenes/banner_view/".$ruta;
+        $directorio="../api_megacable/imagenes/banner_view/".$ruta;
         echo ($directorio);
 
         if (isset($directorio)) 
@@ -624,7 +1128,7 @@
     }
     function eliminandoImagenfooter($ruta)
     {
-        $directorio="C:/xampp/htdocs/api_imagenes/banner_footer/".$ruta;
+        $directorio="../api_megacable/imagenes/banner_footer/".$ruta;
         echo ($directorio);
 
         if (isset($directorio)) 
@@ -638,7 +1142,21 @@
     }
     function eliminandoImagenpeliculas($ruta)
     {
-        $directorio="C:/xampp/htdocs/api_imagenes/peliculas_renta/".$ruta;
+        $directorio="../api_megacable/imagenes/peliculas_renta/".$ruta;
+        echo ($directorio);
+
+        if (isset($directorio)) 
+        {
+            unlink($directorio);
+        }
+        else
+        {
+            echo json_decode($directorio);
+        }
+    }
+    function eliminandoImagentv_en_vivo($ruta)
+    {
+        $directorio="../api_megacable/imagenes/tv_en_vivo/".$ruta;
         echo ($directorio);
 
         if (isset($directorio)) 
@@ -781,6 +1299,135 @@
             echo '{"error":{"text":'. $e->getMessage() .'}}';
         }
     }
+    function posttelevision()
+    {
+        $request = Slim\Slim::getInstance()->request();
+        $fox_mas = json_decode($request->getBody());
+        $sql = "insert into television (nombre, numero_canales, numero_musica) values(:nombre, :numero_canales, :numero_musica)";
+        try {
+            $db = getConnection();
+            $stmt = $db->prepare($sql);
+            $stmt->bindParam("nombre", $fox_mas->nombre);
+            $stmt->bindParam("numero_canales", $fox_mas->numero_canales);
+            $stmt->bindParam("numero_musica", $fox_mas->numero_musica);
+            $fox_mas->id = $db->lastInsertId();
+            $stmt->execute();
+            $db = null;
+        } catch(PDOException $e) {
+            echo '{"error":{"text":'. $e->getMessage() .'}}';
+        }
+    }
+    function postpaquete()
+    {
+        $request = Slim\Slim::getInstance()->request();
+        $fox_mas = json_decode($request->getBody());
+        $sql = "insert into paquetes (precio, precio_pronto, tipo, id_television, id_telefonia, id_internet) values(:precio, :precio_pronto, :tipo, :id_television, :id_telefonia, :id_internet)";
+        try {
+            $db = getConnection();
+            $stmt = $db->prepare($sql);
+            $stmt->bindParam("precio", $fox_mas->precio);
+            $stmt->bindParam("precio_pronto", $fox_mas->precio_pronto);
+            $stmt->bindParam("tipo", $fox_mas->tipo);
+            $stmt->bindParam("id_television", $fox_mas->id_television);
+            $stmt->bindParam("id_telefonia", $fox_mas->id_telefonia);
+            $stmt->bindParam("id_internet", $fox_mas->id_internet);
+
+            $fox_mas->id = $db->lastInsertId();
+            $stmt->execute();
+            $db = null;
+        } catch(PDOException $e) {
+            echo '{"error":{"text":'. $e->getMessage() .'}}';
+        }
+    }
+    function postinternet()
+    {
+        $request = Slim\Slim::getInstance()->request();
+        $internet = json_decode($request->getBody());
+        $sql = "insert into internet (velocidades, descripcion, ruta) values(:velocidades, :descripcion, :ruta)";
+        try {
+            $db = getConnection();
+            $stmt = $db->prepare($sql);
+            $stmt->bindParam("velocidades", $internet->velocidades);
+            $stmt->bindParam("descripcion", $internet->descripcion);
+            $stmt->bindParam("ruta", $internet->ruta);
+            $internet->id = $db->lastInsertId();
+            $stmt->execute();
+            $db = null;
+        } catch(PDOException $e) {
+            echo '{"error":{"text":'. $e->getMessage() .'}}';
+        }
+    }
+    function posttelefonia()
+    {
+        $request = Slim\Slim::getInstance()->request();
+        $telefonia = json_decode($request->getBody());
+        $sql = "insert into telefonia (nombre, descripcion) values(:nombre, :descripcion)";
+        try {
+            $db = getConnection();
+            $stmt = $db->prepare($sql);
+            $stmt->bindParam("nombre", $telefonia->nombre);
+            $stmt->bindParam("descripcion", $telefonia->descripcion);
+            $telefonia->id = $db->lastInsertId();
+            $stmt->execute();
+            $db = null;
+        } catch(PDOException $e) {
+            echo '{"error":{"text":'. $e->getMessage() .'}}';
+        }
+    }
+    function postnetwork()
+    {
+        $request = Slim\Slim::getInstance()->request();
+        $banner_view = json_decode($request->getBody());
+        $sql = "insert into networks (nombre, ruta, descripcion) values(:nombre,:ruta,:descripcion)";
+        try {
+            $db = getConnection();
+            $stmt = $db->prepare($sql);
+            $stmt->bindParam("nombre", $banner_view->nombre);
+            $stmt->bindParam("ruta", $banner_view->ruta);
+            $stmt->bindParam("descripcion", $banner_view->descripcion);
+            $banner_view->id = $db->lastInsertId();
+            $stmt->execute();
+            $db = null;
+        } catch(PDOException $e) {
+            echo '{"error":{"text":'. $e->getMessage() .'}}';
+        }
+    }
+    function posttv_en_vivo()
+    {
+        $request = Slim\Slim::getInstance()->request();
+        $banner_view = json_decode($request->getBody());
+        $sql = "insert into tv_en_vivo (nombre, ruta, descripcion) values(:nombre,:ruta,:descripcion)";
+        try {
+            $db = getConnection();
+            $stmt = $db->prepare($sql);
+            $stmt->bindParam("nombre", $banner_view->nombre);
+            $stmt->bindParam("ruta", $banner_view->ruta);
+            $stmt->bindParam("descripcion", $banner_view->descripcion);
+            $banner_view->id = $db->lastInsertId();
+            $stmt->execute();
+            $db = null;
+        } catch(PDOException $e) {
+            echo '{"error":{"text":'. $e->getMessage() .'}}';
+        }
+    }
+    function postprogramas_tv()
+    {
+        $request = Slim\Slim::getInstance()->request();
+        $banner_view = json_decode($request->getBody());
+        $sql = "insert into programas_tv (nombre, ruta, descripcion) values(:nombre,:ruta,:descripcion)";
+        try {
+            $db = getConnection();
+            $stmt = $db->prepare($sql);
+            $stmt->bindParam("nombre", $banner_view->nombre);
+            $stmt->bindParam("ruta", $banner_view->ruta);
+            $stmt->bindParam("descripcion", $banner_view->descripcion);
+            $banner_view->id = $db->lastInsertId();
+            $stmt->execute();
+            $db = null;
+        } catch(PDOException $e) {
+            echo '{"error":{"text":'. $e->getMessage() .'}}';
+        }
+    }
     function putbannerview($id)
     {
     	$request = Slim\Slim::getInstance()->request();
@@ -804,6 +1451,60 @@
         $request = Slim\Slim::getInstance()->request();
         $banner_footer = json_decode($request->getBody());
         $sql ="update banner_footer SET nombre=:nombre, ruta=:ruta, descripcion=:descripcion where id=:id";
+        try {
+            $db = getConnection();
+            $stmt = $db->prepare($sql);
+            $stmt->bindParam("nombre", $banner_footer->nombre);
+            $stmt->bindParam("ruta", $banner_footer->ruta);
+            $stmt->bindParam("descripcion", $banner_footer->descripcion);
+            $stmt->bindParam("id", $id);
+            $stmt->execute();
+            $db = null;
+        } catch(PDOException $e) {
+            echo '{"error":{"text":'. $e->getMessage() .'}}';
+        }
+    }
+    function putnetworks($id)
+    {
+        $request = Slim\Slim::getInstance()->request();
+        $banner_footer = json_decode($request->getBody());
+        $sql ="update networks SET nombre=:nombre, ruta=:ruta, descripcion=:descripcion where id=:id";
+        try {
+            $db = getConnection();
+            $stmt = $db->prepare($sql);
+            $stmt->bindParam("nombre", $banner_footer->nombre);
+            $stmt->bindParam("ruta", $banner_footer->ruta);
+            $stmt->bindParam("descripcion", $banner_footer->descripcion);
+            $stmt->bindParam("id", $id);
+            $stmt->execute();
+            $db = null;
+        } catch(PDOException $e) {
+            echo '{"error":{"text":'. $e->getMessage() .'}}';
+        }
+    }
+    function putprogramas_tv($id)
+    {
+        $request = Slim\Slim::getInstance()->request();
+        $banner_footer = json_decode($request->getBody());
+        $sql ="update programas_tv SET nombre=:nombre, ruta=:ruta, descripcion=:descripcion where id=:id";
+        try {
+            $db = getConnection();
+            $stmt = $db->prepare($sql);
+            $stmt->bindParam("nombre", $banner_footer->nombre);
+            $stmt->bindParam("ruta", $banner_footer->ruta);
+            $stmt->bindParam("descripcion", $banner_footer->descripcion);
+            $stmt->bindParam("id", $id);
+            $stmt->execute();
+            $db = null;
+        } catch(PDOException $e) {
+            echo '{"error":{"text":'. $e->getMessage() .'}}';
+        }
+    }
+    function puttv_en_vivo($id)
+    {
+        $request = Slim\Slim::getInstance()->request();
+        $banner_footer = json_decode($request->getBody());
+        $sql ="update tv_en_vivo SET nombre=:nombre, ruta=:ruta, descripcion=:descripcion where id=:id";
         try {
             $db = getConnection();
             $stmt = $db->prepare($sql);
@@ -912,6 +1613,58 @@
             echo '{"error":{"text":'. $e->getMessage() .'}}';
         }
     }
+    function putcable($id)
+    {
+        $request = Slim\Slim::getInstance()->request();
+        $fox_mas = json_decode($request->getBody());
+        $sql ="update television SET nombre=:nombre, numero_musica=:numero_musica, numero_canales=:numero_canales where id=:id";
+        try {
+            $db = getConnection();
+            $stmt = $db->prepare($sql);
+            $stmt->bindParam("nombre", $fox_mas->nombre);
+            $stmt->bindParam("numero_musica", $fox_mas->numero_musica);
+            $stmt->bindParam("numero_canales", $fox_mas->numero_canales);
+            $stmt->bindParam("id", $id);
+            $stmt->execute();
+            $db = null;
+        } catch(PDOException $e) {
+            echo '{"error":{"text":'. $e->getMessage() .'}}';
+        }
+    }
+    function putinternet($id)
+    {
+        $request = Slim\Slim::getInstance()->request();
+        $internet = json_decode($request->getBody());
+        $sql ="update internet SET velocidades=:velocidades, descripcion=:descripcion where id=:id";
+        try {
+            $db = getConnection();
+            $stmt = $db->prepare($sql);
+            $stmt->bindParam("velocidades", $internet->velocidades);
+            $stmt->bindParam("descripcion", $internet->descripcion);
+            $stmt->bindParam("id", $id);
+            $stmt->execute();
+            $db = null;
+        } catch(PDOException $e) {
+            echo '{"error":{"text":'. $e->getMessage() .'}}';
+        }
+    }
+    function puttelefonia($id)
+    {
+        $request = Slim\Slim::getInstance()->request();
+        $telefonia = json_decode($request->getBody());
+        $sql ="update telefonia SET nombre=:nombre, descripcion=:descripcion where id=:id";
+        try {
+            $db = getConnection();
+            $stmt = $db->prepare($sql);
+            $stmt->bindParam("nombre", $telefonia->nombre);
+            $stmt->bindParam("descripcion", $telefonia->descripcion);
+            $stmt->bindParam("id", $id);
+            $stmt->execute();
+            $db = null;
+        } catch(PDOException $e) {
+            echo '{"error":{"text":'. $e->getMessage() .'}}';
+        }
+    }
     function deletebannerview($id)
     {
     	$sql = "delete from banner_view where id=:id";
@@ -998,7 +1751,7 @@
     }
     function deletefox_mas($id)
     {
-         $sql = "delete from fox_mas where id=:id";
+        $sql = "delete from fox_mas where id=:id";
         try 
         {
             $db = getConnection();
@@ -1010,6 +1763,88 @@
             echo '{"error":{"text":'. $e->getMessage() .'}}'; 
         }
     }
-
-
+    function deletecable($id)
+    {
+        $sql = "delete from television where id=:id";
+        try 
+        {
+            $db = getConnection();
+            $stmt = $db->prepare($sql);  
+            $stmt->bindParam("id", $id);
+            $stmt->execute();
+            $db = null;
+        } catch(PDOException $e) {
+            echo '{"error":{"text":'. $e->getMessage() .'}}'; 
+        }
+    }
+    function deleteinternet($id)
+    {
+        $sql = "delete from internet where id=:id";
+        try 
+        {
+            $db = getConnection();
+            $stmt = $db->prepare($sql);  
+            $stmt->bindParam("id", $id);
+            $stmt->execute();
+            $db = null;
+        } catch(PDOException $e) {
+            echo '{"error":{"text":'. $e->getMessage() .'}}'; 
+        }
+    }
+    function deletetelefonia($id)
+    {
+        $sql = "delete from telefonia where id=:id";
+        try 
+        {
+            $db = getConnection();
+            $stmt = $db->prepare($sql);  
+            $stmt->bindParam("id", $id);
+            $stmt->execute();
+            $db = null;
+        } catch(PDOException $e) {
+            echo '{"error":{"text":'. $e->getMessage() .'}}'; 
+        }
+    }
+    function deletetv_en_vivo($id)
+    {
+        $sql = "delete from tv_en_vivo where id=:id";
+        try 
+        {
+            $db = getConnection();
+            $stmt = $db->prepare($sql);  
+            $stmt->bindParam("id", $id);
+            $stmt->execute();
+            $db = null;
+        } catch(PDOException $e) {
+            echo '{"error":{"text":'. $e->getMessage() .'}}'; 
+        }
+    }
+    function deletenetwork($id)
+    {
+        $sql = "delete from networks where id=:id";
+        try 
+        {
+            $db = getConnection();
+            $stmt = $db->prepare($sql);  
+            $stmt->bindParam("id", $id);
+            $stmt->execute();
+            $db = null;
+        } catch(PDOException $e) {
+            echo '{"error":{"text":'. $e->getMessage() .'}}'; 
+        }
+    }
+    function deleteprogramas_tv($id)
+    {
+        $sql = "delete from programas_tv where id=:id";
+        try 
+        {
+            $db = getConnection();
+            $stmt = $db->prepare($sql);  
+            $stmt->bindParam("id", $id);
+            $stmt->execute();
+            $db = null;
+        } catch(PDOException $e) {
+            echo '{"error":{"text":'. $e->getMessage() .'}}'; 
+        }
+    }
 $app->run();
