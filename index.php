@@ -137,6 +137,8 @@
     $app->delete('/eliminartv_en_vivo/:id','deletetv_en_vivo');
     $app->delete('/eliminarnetworks/:id','deletenetwork');
     $app->delete('/eliminarprogramas_tv/:id','deleteprogramas_tv');
+    $app->delete('/eliminarpaquete/:id','deletepaquete');
+
     
     function getinicio()
     {
@@ -232,7 +234,7 @@
     }
     function getpaquete1()
     {
-        $sql = "select paquetes.precio, paquetes.precio_pronto, paquetes.tipo, television.nombre, television.numero_canales, television.numero_musica from paquetes join television on paquetes.id_television = television.id where paquetes.tipo=1 ORDER BY paquetes.id";
+        $sql = "select paquetes.id, paquetes.precio, paquetes.precio_pronto, paquetes.tipo, television.nombre, television.numero_canales, television.numero_musica from paquetes join television on paquetes.id_television = television.id where paquetes.tipo=1 ORDER BY paquetes.id";
         try {
             $db = getConnection();
             $stmt = $db->query($sql);
@@ -245,7 +247,7 @@
     }
     function getpaquete2()
     {
-        $sql = "select internet.velocidades, paquetes.precio, paquetes.precio_pronto, paquetes.tipo, television.nombre, television.numero_canales, television.numero_musica from paquetes join television on paquetes.id_television = television.id  join internet on paquetes.id_internet = internet.id where paquetes.tipo=2 ORDER BY paquetes.id";
+        $sql = "select paquetes.id, internet.velocidades, paquetes.precio, paquetes.precio_pronto, paquetes.tipo, television.nombre, television.numero_canales, television.numero_musica from paquetes join television on paquetes.id_television = television.id  join internet on paquetes.id_internet = internet.id where paquetes.tipo=2 ORDER BY paquetes.id";
         try {
             $db = getConnection();
             $stmt = $db->query($sql);
@@ -258,7 +260,7 @@
     }
     function getpaquete2t()
     {
-        $sql = "select paquetes.precio, paquetes.precio_pronto, paquetes.tipo, television.nombre, television.numero_canales, television.numero_musica,telefonia.descripcion from paquetes join television on paquetes.id_television = television.id join telefonia on paquetes.id_telefonia = telefonia.id where paquetes.tipo=2 ORDER BY paquetes.id";
+        $sql = "select paquetes.id, paquetes.precio, paquetes.precio_pronto, paquetes.tipo, television.nombre, television.numero_canales, television.numero_musica,telefonia.descripcion from paquetes join television on paquetes.id_television = television.id join telefonia on paquetes.id_telefonia = telefonia.id where paquetes.tipo=2 ORDER BY paquetes.id";
         try {
             $db = getConnection();
             $stmt = $db->query($sql);
@@ -271,7 +273,7 @@
     }
     function getpaquete3()
     {
-        $sql = "select paquetes.precio, paquetes.precio_pronto, paquetes.tipo, television.nombre, television.numero_canales, television.numero_musica, internet.velocidades, telefonia.descripcion from paquetes join television on paquetes.id_television = television.id  join internet on paquetes.id_internet = internet.id  join telefonia on paquetes.id_telefonia = telefonia.id where paquetes.tipo=3 ORDER BY paquetes.id";
+        $sql = "select paquetes.id, paquetes.precio, paquetes.precio_pronto, paquetes.tipo, television.nombre, television.numero_canales, television.numero_musica, internet.velocidades, telefonia.descripcion from paquetes join television on paquetes.id_television = television.id  join internet on paquetes.id_internet = internet.id  join telefonia on paquetes.id_telefonia = telefonia.id where paquetes.tipo=3 ORDER BY paquetes.id";
         try {
             $db = getConnection();
             $stmt = $db->query($sql);
@@ -1846,5 +1848,19 @@
         } catch(PDOException $e) {
             echo '{"error":{"text":'. $e->getMessage() .'}}'; 
         }
+    }
+    function deletepaquete($id)
+    {
+        $sql = "delete from paquetes where id=:id";
+        try 
+        {
+            $db = getConnection();
+            $stmt = $db->prepare($sql);  
+            $stmt->bindParam("id", $id);
+            $stmt->execute();
+            $db = null;
+        } catch(PDOException $e) {
+            echo '{"error":{"text":'. $e->getMessage() .'}}'; 
+        }   
     }
 $app->run();
