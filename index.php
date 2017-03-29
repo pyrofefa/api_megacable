@@ -25,6 +25,9 @@
     $app->get('/paquete_dos_telefonia','getpaquete2t');
     $app->get('/paquete_tres','getpaquete3');
 
+    $app->get('/ruleta','getruleta');
+    $app->get('/ruleta/:id','getruletaid');
+
 
     //buscando por id
     $app->get('/promociones/:id','getpromocionesid');
@@ -122,6 +125,7 @@
     $app->put('/actualizarnetworks/:id','putnetworks');
     $app->put('/actualizarprogramas_tv/:id','putprogramas_tv');
     $app->put('/actualizartv_en_vivo/:id','puttv_en_vivo');
+    $app->put('/actualizarruleta/:id','putruleta');
 
     //Eliminar
     $app->delete('/eliminarlistaimagen/:id','deletebannerview');
@@ -172,22 +176,22 @@
     }
     function getbannerviewid($id)
     {
-		$sql = "select * from banner_view where id= :id";
+        $sql = "select * from banner_view where id= :id";
         try 
         {
-			$db = getConnection();
-			$stmt = $db->prepare($sql);  
-			$stmt->bindParam("id", $id);
-			$stmt->execute();
-			$c = $stmt->fetchObject();  
-			$db = null;
-			echo json_encode($c); 
-		}
-		catch(PDOException $e) 
-		{
-			echo '{"error":{"text":'. $e->getMessage() .'}}'; 
-		}
-	}
+            $db = getConnection();
+            $stmt = $db->prepare($sql);  
+            $stmt->bindParam("id", $id);
+            $stmt->execute();
+            $c = $stmt->fetchObject();  
+            $db = null;
+            echo json_encode($c); 
+        }
+        catch(PDOException $e) 
+        {
+            echo '{"error":{"text":'. $e->getMessage() .'}}'; 
+        }
+    }
     function getbannerfooter()
     {
         $sql = "select * from banner_footer";
@@ -217,6 +221,37 @@
         catch(PDOException $e) 
         {
             echo '{"error":{"text":'. $e->getMessage() .'}}'; 
+        }
+    }
+    function getruletaid($id)
+    {
+        $sql = "select * from ruleta where id= :id";
+        try 
+        {
+            $db = getConnection();
+            $stmt = $db->prepare($sql);  
+            $stmt->bindParam("id", $id);
+            $stmt->execute();
+            $c = $stmt->fetchObject();  
+            $db = null;
+            echo json_encode($c); 
+        }
+        catch(PDOException $e) 
+        {
+            echo '{"error":{"text":'. $e->getMessage() .'}}'; 
+        }
+    }
+    function getruleta()
+    {
+        $sql = "select * from ruleta";
+        try {
+            $db = getConnection();
+            $stmt = $db->query($sql);
+            $c = $stmt->fetchAll(PDO::FETCH_OBJ);
+            $db = null;
+            echo json_encode($c);
+        }catch(PDOException $e) {
+            echo '{"error":{"text":'. $e->getMessage() .'}}';
         }
     }
     function getpromociones()
@@ -1430,9 +1465,27 @@
             echo '{"error":{"text":'. $e->getMessage() .'}}';
         }
     }
+    function putruleta($id)
+    {
+        $request = Slim\Slim::getInstance()->request();
+        $request = Slim\Slim::getInstance()->request();
+        $banner_view = json_decode($request->getBody());
+        var_dump($banner_view);
+        $sql ="update ruleta SET numero=:nombre where id=:id";
+        //try {
+            $db = getConnection();
+            $stmt = $db->prepare($sql);
+            $stmt->bindParam("nombre", $banner_view->nombre);
+            $stmt->bindParam("id", $id);
+            $stmt->execute();
+            $db = null;
+        //} catch(PDOException $e) {
+            //echo '{"error":{"text":'. $e->getMessage() .'}}';
+        //}
+    }
     function putbannerview($id)
     {
-    	$request = Slim\Slim::getInstance()->request();
+        $request = Slim\Slim::getInstance()->request();
         $banner_view = json_decode($request->getBody());
         $sql ="update banner_view SET nombre=:nombre, ruta=:ruta, descripcion=:descripcion where id=:id";
         try {
@@ -1669,17 +1722,17 @@
     }
     function deletebannerview($id)
     {
-    	$sql = "delete from banner_view where id=:id";
-		try 
-		{
-			$db = getConnection();
-			$stmt = $db->prepare($sql);  
-			$stmt->bindParam("id", $id);
-			$stmt->execute();
-			$db = null;
-		} catch(PDOException $e) {
-			echo '{"error":{"text":'. $e->getMessage() .'}}'; 
-		}
+        $sql = "delete from banner_view where id=:id";
+        try 
+        {
+            $db = getConnection();
+            $stmt = $db->prepare($sql);  
+            $stmt->bindParam("id", $id);
+            $stmt->execute();
+            $db = null;
+        } catch(PDOException $e) {
+            echo '{"error":{"text":'. $e->getMessage() .'}}'; 
+        }
     }
     function deletebannerfooter($id)
     {
