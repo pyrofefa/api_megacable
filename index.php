@@ -24,6 +24,7 @@
     $app->get('/paquete_dos_internet','getpaquete2');
     $app->get('/paquete_dos_telefonia','getpaquete2t');
     $app->get('/paquete_tres','getpaquete3');
+    $app->get('/paquete_tres/:id','getpaquete3id');
 
     $app->get('/ruleta','getruleta');
     $app->get('/ruleta/:id','getruletaid');
@@ -369,6 +370,24 @@
             echo json_encode($c);
         }catch(PDOException $e) {
             echo '{"error":{"text":'. $e->getMessage() .'}}';
+        }
+    }
+    function getpaquete3id($id)
+    {
+        $sql = "select paquetes.precio_pronto, paquetes.tipo, paquetes.precio, internet.velocidades, internet.descripcion, telefonia.nombre, telefonia.descripcion AS telefonia, television.numero_musica, television.numero_canales, television.nombre AS television FROM internet JOIN paquetes ON internet.id = paquetes.id_internet JOIN telefonia ON telefonia.id = paquetes.id_telefonia JOIN television ON television.id = paquetes.id_television WHERE paquetes.tipo = 3 and paquetes.id = :id";
+        try 
+        {
+            $db = getConnection();
+            $stmt = $db->prepare($sql);  
+            $stmt->bindParam("id", $id);
+            $stmt->execute();
+            $c = $stmt->fetchObject();  
+            $db = null;
+            echo json_encode($c); 
+        }
+        catch(PDOException $e) 
+        {
+            echo '{"error":{"text":'. $e->getMessage() .'}}'; 
         }
     }
     function getpromocionesid($id)
@@ -1227,13 +1246,14 @@
     {
         $request = Slim\Slim::getInstance()->request();
         $banner_footer = json_decode($request->getBody());
-        $sql = "insert into banner_footer (nombre, ruta, descripcion) values(:nombre,:ruta,:descripcion)";
+        $sql = "insert into banner_footer (nombre, ruta, descripcion, tipo) values(:nombre,:ruta,:descripcion, :tipo)";
         try {
             $db = getConnection();
             $stmt = $db->prepare($sql);
             $stmt->bindParam("nombre", $banner_footer->nombre);
             $stmt->bindParam("ruta", $banner_footer->ruta);
             $stmt->bindParam("descripcion", $banner_footer->descripcion);
+            $stmt->bindParam("tipo", $banner_footer->tipo);
             $banner_footer->id = $db->lastInsertId();
             $stmt->execute();
             $db = null;
