@@ -934,11 +934,13 @@
         $request = Slim\Slim::getInstance()->request();
         $banner_view = json_decode($request->getBody());
         $file = $_FILES["file"]["name"];
+        $cambio = str_replace(" ", "_", $file);
+ 
         if(!is_dir("../api_megacable/imagenes/banner_view"))
         {
             mkdir("../api_megacable/imagenes/banner_view", 0777);
         }
-        if($file && move_uploaded_file($_FILES["file"]["tmp_name"], "../api_megacable/imagenes/banner_view/".$file))
+        if($file && move_uploaded_file($_FILES["file"]["tmp_name"], "../api_megacable/imagenes/banner_view/".$cambio))
         {
             echo json_decode($file);
         }
@@ -948,11 +950,13 @@
         $request = Slim\Slim::getInstance()->request();
         $banner_view = json_decode($request->getBody());
         $file = $_FILES["file"]["name"];
+        $cambio = str_replace(" ", "_", $file);
+
         if(!is_dir("../api_megacable/imagenes/banner_footer"))
         {
             mkdir("../api_megacable/imagenes/banner_footer", 0777);
         }
-        if($file && move_uploaded_file($_FILES["file"]["tmp_name"], "../api_megacable/imagenes/banner_footer/".$file))
+        if($file && move_uploaded_file($_FILES["file"]["tmp_name"], "../api_megacable/imagenes/banner_footer/".$cambio))
         {
             echo json_decode($file);
         }
@@ -962,11 +966,13 @@
         $request = Slim\Slim::getInstance()->request();
         $banner_view = json_decode($request->getBody());
         $file = $_FILES["file"]["name"];
+        $cambio = str_replace(" ", "_", $file);
+
         if(!is_dir("../api_megacable/imagenes/promos"))
         {
             mkdir("../api_megacable/imagenes/promos", 0777);
         }
-        if($file && move_uploaded_file($_FILES["file"]["tmp_name"], "../api_megacable/imagenes/promos/".$file))
+        if($file && move_uploaded_file($_FILES["file"]["tmp_name"], "../api_megacable/imagenes/promos/".$cambio))
         {
             echo json_decode($file);
         }
@@ -976,11 +982,14 @@
         $request = Slim\Slim::getInstance()->request();
         $banner_view = json_decode($request->getBody());
         $file = $_FILES["file"]["name"];
+        $cambio = str_replace(" ", "_", $file);
+
+
         if(!is_dir("../api_megacable/imagenes/peliculas_renta"))
         {
             mkdir("../api_megacable/imagenes/peliculas_renta", 0777);
         }
-        if($file && move_uploaded_file($_FILES["file"]["tmp_name"], "../api_megacable/imagenes/peliculas_renta/".$file))
+        if($file && move_uploaded_file($_FILES["file"]["tmp_name"], "../api_megacable/imagenes/peliculas_renta/".$cambio))
         {
             echo json_decode($file);
         }    
@@ -990,11 +999,13 @@
         $request = Slim\Slim::getInstance()->request();
         $banner_view = json_decode($request->getBody());
         $file = $_FILES["file"]["name"];
+        $cambio = str_replace(" ", "_", $file);
+
         if(!is_dir("../api_megacable/imagenes//hbo_max"))
         {
             mkdir("../api_megacable/imagenes/hbo_max", 0777);
         }
-        if($file && move_uploaded_file($_FILES["file"]["tmp_name"], "../api_megacable/imagenes/hbo_max/".$file))
+        if($file && move_uploaded_file($_FILES["file"]["tmp_name"], "../api_megacable/imagenes/hbo_max/".$cambio))
         {
             echo json_decode($file);
         }    
@@ -1004,11 +1015,13 @@
         $request = Slim\Slim::getInstance()->request();
         $banner_view = json_decode($request->getBody());
         $file = $_FILES["file"]["name"];
+        $cambio = str_replace(" ", "_", $file);
+
         if(!is_dir("../api_megacable/imagenes/ppv"))
         {
             mkdir("../api_megacable/imagenes/ppv", 0777);
         }
-        if($file && move_uploaded_file($_FILES["file"]["tmp_name"], "../api_megacable/imagenes/ppv/".$file))
+        if($file && move_uploaded_file($_FILES["file"]["tmp_name"], "../api_megacable/imagenes/ppv/".$cambio))
         {
             echo json_decode($file);
         }    
@@ -1018,11 +1031,13 @@
         $request = Slim\Slim::getInstance()->request();
         $banner_view = json_decode($request->getBody());
         $file = $_FILES["file"]["name"];
+        $cambio = str_replace(" ", "_", $file);
+
         if(!is_dir("../api_megacable/imagenes/fox_mas"))
         {
             mkdir("../api_megacable/imagenes/fox_mas", 0777);
         }
-        if($file && move_uploaded_file($_FILES["file"]["tmp_name"], "../api_megacable/imagenes/fox_mas/".$file))
+        if($file && move_uploaded_file($_FILES["file"]["tmp_name"], "../api_megacable/imagenes/fox_mas/".$cambio))
         {
             echo json_decode($file);
         }    
@@ -1032,11 +1047,13 @@
         $request = Slim\Slim::getInstance()->request();
         $banner_view = json_decode($request->getBody());
         $file = $_FILES["file"]["name"];
+        $cambio = str_replace(" ", "_", $file);
+
         if(!is_dir("../api_megacable/imagenes/networks"))
         {
             mkdir("../api_megacable/imagenes/networks", 0777);
         }
-        if($file && move_uploaded_file($_FILES["file"]["tmp_name"], "../api_megacable/imagenes/networks/".$file))
+        if($file && move_uploaded_file($_FILES["file"]["tmp_name"], "../api_megacable/imagenes/networks/".$cambio))
         {
             echo json_decode($file);
         }    
@@ -1046,11 +1063,13 @@
         $request = Slim\Slim::getInstance()->request();
         $banner_view = json_decode($request->getBody());
         $file = $_FILES["file"]["name"];
+        $cambio = str_replace(" ", "_", $file);
+
         if(!is_dir("../api_megacable/imagenes/tv_en_vivo"))
         {
             mkdir("../api_megacable/imagenes/tv_en_vivo", 0777);
         }
-        if($file && move_uploaded_file($_FILES["file"]["tmp_name"], "../api_megacable/imagenes/tv_en_vivo/".$file))
+        if($file && move_uploaded_file($_FILES["file"]["tmp_name"], "../api_megacable/imagenes/tv_en_vivo/".$cambio))
         {
             echo json_decode($file);
         }    
@@ -1060,11 +1079,13 @@
         $request = Slim\Slim::getInstance()->request();
         $banner_view = json_decode($request->getBody());
         $file = $_FILES["file"]["name"];
+        $cambio = str_replace(" ", "_", $file);
+
         if(!is_dir("../api_megacable/imagenes/programas_tv"))
         {
             mkdir("../api_megacable/imagenes/programas_tv", 0777);
         }
-        if($file && move_uploaded_file($_FILES["file"]["tmp_name"], "../api_megacable/imagenes/programas_tv/".$file))
+        if($file && move_uploaded_file($_FILES["file"]["tmp_name"], "../api_megacable/imagenes/programas_tv/".$cambio))
         {
             echo json_decode($file);
         }    
@@ -1074,11 +1095,13 @@
         $request = Slim\Slim::getInstance()->request();
         $banner_view = json_decode($request->getBody());
         $file = $_FILES["file"]["name"];
+        $cambio = str_replace(" ", "_", $file);
+
         if(!is_dir("../api_megacable/imagenes/internet"))
         {
             mkdir("../api_megacable/imagenes/internet", 0777);
         }
-        if($file && move_uploaded_file($_FILES["file"]["tmp_name"], "../api_megacable/imagenes/internet/".$file))
+        if($file && move_uploaded_file($_FILES["file"]["tmp_name"], "../api_megacable/imagenes/internet/".$cambio))
         {
             echo json_decode($file);
         }    
@@ -1228,13 +1251,14 @@
     {
         $request = Slim\Slim::getInstance()->request();
         $banner_view = json_decode($request->getBody());
-        $sql = "insert into banner_view (nombre, ruta, descripcion) values(:nombre,:ruta,:descripcion)";
+        $sql = "insert into banner_view (nombre, ruta, descripcion,tipo) values(:nombre,:ruta,:descripcion,:tipo)";
         try {
             $db = getConnection();
             $stmt = $db->prepare($sql);
             $stmt->bindParam("nombre", $banner_view->nombre);
             $stmt->bindParam("ruta", $banner_view->ruta);
             $stmt->bindParam("descripcion", $banner_view->descripcion);
+            $stmt->bindParam("tipo", $banner_view->tipo);
             $banner_view->id = $db->lastInsertId();
             $stmt->execute();
             $db = null;
@@ -1507,13 +1531,14 @@
     {
         $request = Slim\Slim::getInstance()->request();
         $banner_view = json_decode($request->getBody());
-        $sql ="update banner_view SET nombre=:nombre, ruta=:ruta, descripcion=:descripcion where id=:id";
+        $sql ="update banner_view SET nombre=:nombre, ruta=:ruta, descripcion=:descripcion, tipo=:tipo where id=:id";
         try {
             $db = getConnection();
             $stmt = $db->prepare($sql);
             $stmt->bindParam("nombre", $banner_view->nombre);
             $stmt->bindParam("ruta", $banner_view->ruta);
             $stmt->bindParam("descripcion", $banner_view->descripcion);
+            $stmt->bindParam("tipo", $banner_view->tipo);
             $stmt->bindParam("id", $id);
             $stmt->execute();
             $db = null;
@@ -1525,13 +1550,14 @@
     {
         $request = Slim\Slim::getInstance()->request();
         $banner_footer = json_decode($request->getBody());
-        $sql ="update banner_footer SET nombre=:nombre, ruta=:ruta, descripcion=:descripcion where id=:id";
+        $sql ="update banner_footer SET nombre=:nombre, ruta=:ruta, descripcion=:descripcion, tipo=:tipo where id=:id";
         try {
             $db = getConnection();
             $stmt = $db->prepare($sql);
             $stmt->bindParam("nombre", $banner_footer->nombre);
             $stmt->bindParam("ruta", $banner_footer->ruta);
             $stmt->bindParam("descripcion", $banner_footer->descripcion);
+            $stmt->bindParam("tipo", $banner_footer->tipo);
             $stmt->bindParam("id", $id);
             $stmt->execute();
             $db = null;
